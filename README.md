@@ -4,7 +4,7 @@ This is a small JS project that automatically enumerates <h> heading elements in
 
 ## Usage
 
-To use this tool, you can either copy `script.js` or `scripttiny.js` from this repository or refer to it in an HTML `<script>` element. [RawGit](https://rawgit.com/) claims to have stopped working years ago, but it seems to work fine for me. I'm sure this will never cause problems in the future.
+To use this tool, you can either copy [script.js](https://github.com/Astronomy487/heading-enumerator/blob/main/script.js) or [scripttiny.js](https://github.com/Astronomy487/heading-enumerator/blob/main/scripttiny.js) from this repository or refer to it in an HTML `<script>` element. [RawGit](https://rawgit.com/) claims to have stopped working years ago, but it seems to work fine for me. I'm sure this will never cause problems in the future.
 
 ```html
 <script src="https://cdn.rawgit.com/Astronomy487/heading-enumerator/main/scripttiny.js"></script>
