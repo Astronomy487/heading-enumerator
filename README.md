@@ -1,6 +1,6 @@
 # heading-enumerator
 
-This is a small JS project that automatically enumerates <h> heading elements in an HTML document that profides significant customization in how enumerations are presented.
+This is a small JS project that automatically enumerates <h> heading elements in an HTML document that provides significant customization in how enumerations are presented.
 
 ## Usage
 
