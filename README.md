@@ -14,7 +14,7 @@ To use this tool, you can either copy `script.js` or `scripttiny.js` from this r
 
 A call to the `heading_enumerator` function might look like
 
-```
+```js
 heading_enumerator("autoenumerate", 2, "Section ", "R.r", ": ");
 ```
 
