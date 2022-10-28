@@ -10,6 +10,7 @@ function heading_enumerator(target_class, starting_level, prepunctuation, form_s
 	}
 	//now lets actually read the doc
 	let p = []; //track levels
+  let return_object = [];
 	for (heading of document.getElementsByClassName(target_class)) {
 		let depth = (heading.tagName.substring(1))-(starting_level-1); //the depth of this el. 0=top level, form.length-1=bottom level we should care about
 		if (depth < 0 || depth > form.length) continue; //We dont care about this heading.
@@ -38,9 +39,11 @@ function heading_enumerator(target_class, starting_level, prepunctuation, form_s
 			pretext += added_digit;
 			if (i+1<p.length || p.length == form.length) pretext += form[i].punctuation; //only keep putting that form[i].punctuation if theres more digits to come
 		}
+    return_object.push({text: heading.innerHTML, depth: p.length-1, levels: p.join("-"), htmlelement: heading});
 		heading.innerHTML = prepunctuation + pretext + postpunctuation + heading.innerHTML;
 	}
-	//lets define some helpy functions
+  return return_object;
+	//helper function for roman. function in function
 	function roman(num) {
 		if (num < 1 || num > 3999) return "?";
 		let r = "";
@@ -70,3 +73,18 @@ function heading_enumerator(target_class, starting_level, prepunctuation, form_s
 	}
 } //end function
 /**shoutout vrabbers for showing me how to do this like 2 years ago**/
+
+function heading_enumerator_toc(return_object) {
+  let text = "";
+  for (section of return_object) {
+    section.htmlelement.id = (section.htmlelement.id+" sec-" + section.levels).trim();
+    text += "<p>";
+    for (let i = 0; i < section.depth; i++) {
+      text += "&emsp;";
+    }
+    text += "<a href=\"#sec-"+section.levels+"\">"+section.htmlelement.innerText+"</a></p>";
+    //i chose not to use section.text here so i could keep the heading text we already calculated
+    //but i left section.text as just the heading text so other people can exclude that from their toc if they so desire
+  }
+  return text;
+}
