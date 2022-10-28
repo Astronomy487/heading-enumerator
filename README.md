@@ -2,14 +2,12 @@
 
 This is a small JS project that automatically enumerates <h> heading elements in an HTML document that provides significant customization in how enumerations are presented. It also can create a table of contents.
 
-## Usage
+To use this tool, copy [scripttiny.js](https://github.com/Astronomy487/heading-enumerator/blob/main/scripttiny.js) (or [script.js](https://github.com/Astronomy487/heading-enumerator/blob/main/script.js)) and insert it into your HTML document inside a `<script>` element.
 
-To use this tool, you can either copy [script.js](https://github.com/Astronomy487/heading-enumerator/blob/main/script.js) or [scripttiny.js](https://github.com/Astronomy487/heading-enumerator/blob/main/scripttiny.js) from this repository and insert it into your own HTML file.
-    
-You could also reference it with the `src` attribute of a `<script>` element. [RawGit](https://rawgit.com/) claims to have stopped working years ago, but it seems to work fine for me. I'm sure this will never cause problems in the future.
+Then call the function `heading_enumerator`, or wrap it inside `heading_enumerator_toc` to also generate a table of contents. If you don't want to read the rest of this documentation, just do something like 
 
-```html
-<script src="https://cdn.rawgit.com/Astronomy487/heading-enumerator/main/scripttiny.js"></script>
+```javascript
+document.getElementById("toc").innerHTML = heading_enumerator_toc(heading_enumerator("heading", 2, "", "1.1.1", " "));
 ```
 
 ## Customization
@@ -17,7 +15,7 @@ You could also reference it with the `src` attribute of a `<script>` element. [R
 A call to the `heading_enumerator` function might look like
 
 ```js
-heading_enumerator("autoenumerate", 2, "Section ", "R.r", ": ");
+heading_enumerator("heading", 2, "Section ", "R.r", ": ");
 ```
 
 Its five arguments are
@@ -48,5 +46,5 @@ You should then take the output of `heading_enumerator_toc` and put it into your
 A full call would look something like
 
 ```javascript
-document.getElementById("toc").innerHTML = heading_enumerator_toc(heading_enumerator("autoenumerate", 2, "Section ", "R.r", ": "));
+document.getElementById("toc").innerHTML = heading_enumerator_toc(heading_enumerator("heading", 2, "Section ", "R.r", ": "));
 ```
